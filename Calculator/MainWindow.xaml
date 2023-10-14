@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="Калькулятор" Height="500" Width="350">
+        Title="Калькулятор" Height="500" Width="350" WindowStartupLocation="CenterScreen" Icon="/calculator icon.png">
 
     <Grid Background="#FF202020">
         <Grid.RowDefinitions>
@@ -20,30 +20,30 @@
                 <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
 
-            <TextBox Grid.Row="0" HorizontalAlignment="Stretch" Margin="2,2,0,0" TextWrapping="NoWrap" Text="10 + 2 * 4" VerticalAlignment="Stretch" TextAlignment="Right" Background="#FF323232" Foreground="#FFFFFDFD" FontFamily="Segoe UI Variable Display Semibold" BorderBrush="{x:Null}"/>
-            <TextBox Grid.Row="1" HorizontalAlignment="Stretch" Margin="2,2,0,0" TextWrapping="NoWrap" Text="48" VerticalAlignment="Stretch" FontSize="60" TextAlignment="Right" Background="#FF202020" Foreground="#FFFFFDFD" FontFamily="Segoe UI Variable Display Semibold" BorderBrush="{x:Null}"/>
+            <TextBox Name ="expTextBox" Grid.Row="0" HorizontalAlignment="Stretch" Margin="2,2,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Stretch" TextAlignment="Right" Background="#FF202020" Foreground="#FFFFFDFD" FontFamily="Segoe UI Variable Display Semibold" BorderBrush="{x:Null}" IsReadOnly="True"/>
+            <TextBox Name ="numTextBox" Grid.Row="1" HorizontalAlignment="Stretch" Margin="2,2,0,0" TextWrapping="NoWrap" Text="0" VerticalAlignment="Stretch" FontSize="60" TextAlignment="Right" Background="#FF202020" Foreground="#FFFFFDFD" FontFamily="Segoe UI Variable Display Semibold" BorderBrush="{x:Null}" IsReadOnly="True"/>
         </Grid>
 
         <UniformGrid Grid.Row="1" Rows="4" Columns="4">
-            <Button Content="CE"    HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF323232" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
-            <Button Content="C"     HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF323232" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
-            <Button Content="&lt;"  HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF323232" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
-            <Button Content="/"     HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF323232" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
+            <Button Content="CE"    HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF2B2B2B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="CleanEntryButton_Click"/>
+            <Button Content="C"     HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF2B2B2B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="CleanButton_Click"/>
+            <Button Content="&lt;"  HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF2B2B2B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="DeleteButton_Click"/>
+            <Button Content="/"     HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF2B2B2B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="SymButton_Click"/>
 
-            <Button Content="7" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
-            <Button Content="8" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
-            <Button Content="9" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
-            <Button Content="*" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF323232" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
+            <Button Content="7" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="NumButton_Click"/>
+            <Button Content="8" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="NumButton_Click"/>
+            <Button Content="9" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="NumButton_Click"/>
+            <Button Content="*" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF2B2B2B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="SymButton_Click"/>
 
-            <Button Content="4" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
-            <Button Content="5" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
-            <Button Content="6" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
-            <Button Content="-" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF323232" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
+            <Button Content="4" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="NumButton_Click"/>
+            <Button Content="5" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="NumButton_Click"/>
+            <Button Content="6" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="NumButton_Click"/>
+            <Button Content="-" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF2B2B2B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="SymButton_Click"/>
 
-            <Button Content="2" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
-            <Button Content="3" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
-            <Button Content="4" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
-            <Button Content="+" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF323232" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}"/>
+            <Button Content="1" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="NumButton_Click"/>
+            <Button Content="2" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="NumButton_Click"/>
+            <Button Content="3" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="NumButton_Click"/>
+            <Button Content="+" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF2B2B2B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="SymButton_Click"/>
         </UniformGrid>
 
         <Grid Grid.Row="2">
@@ -53,9 +53,9 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Content="." Grid.Column="0" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" OpacityMask="Black" BorderBrush="{x:Null}"/>
-            <Button Content="0" Grid.Column="1" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" OpacityMask="Black" BorderBrush="{x:Null}"/>
-            <Button Content="=" Grid.Column="2" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FFA6A5A1" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" OpacityMask="Black" BorderBrush="{x:Null}"/>
+            <Button Content="," Grid.Column="0" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="NumButton_Click"/>
+            <Button Content="0" Grid.Column="1" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="#FF3B3B3B" Foreground="White" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="NumButton_Click"/>
+            <Button Content="=" Grid.Column="2" HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Background="White" Foreground="#FF2B2B2B" FontFamily="Segoe UI Variable Display Semibold" FontSize="16" BorderBrush="{x:Null}" Click="ResultButton_Click"/>
         </Grid>
     </Grid>
 </Window>
