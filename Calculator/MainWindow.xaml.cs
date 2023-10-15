@@ -60,15 +60,18 @@ namespace Calculator
         {
             this.Clear();
 
-            if (sender is Button button)
+            if (this.numTextBox.Text.Length < 17)
             {
-                if (this.numTextBox.Text == "0" && button.Content.ToString() != ",")
+                if (sender is Button button)
                 {
-                    this.numTextBox.Text = button.Content.ToString();
-                }
-                else
-                {
-                    this.numTextBox.Text += button.Content.ToString();
+                    if (this.numTextBox.Text == "0" && button.Content.ToString() != ",")
+                    {
+                        this.numTextBox.Text = button.Content.ToString();
+                    }
+                    else
+                    {
+                        this.numTextBox.Text += button.Content.ToString();
+                    }
                 }
             }
         }
@@ -104,12 +107,12 @@ namespace Calculator
             {
                 string[] expTextBoxStr = this.expTextBox.Text.Split(' ');
 
-                decimal firstNum = Convert.ToDecimal(expTextBoxStr[0]); // получение первого числа
-                decimal secondNum = Convert.ToDecimal(this.numTextBox.Text); // получение второго числа
-                string mathSymbol = expTextBoxStr[1]; // получение математического знака
-
                 try
                 {
+                    decimal firstNum = Convert.ToDecimal(expTextBoxStr[0]); // получение первого числа
+                    decimal secondNum = Convert.ToDecimal(this.numTextBox.Text); // получение второго числа
+                    string mathSymbol = expTextBoxStr[1]; // получение математического знака
+
                     decimal result;
                     switch (mathSymbol)
                     {
